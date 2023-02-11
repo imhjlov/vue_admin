@@ -7,7 +7,7 @@ import UserView from '../views/UserView.vue';
 import ItemView from '../views/ItemView.vue';
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(), // # 제거
   routes: [
     {
       path: '/',
