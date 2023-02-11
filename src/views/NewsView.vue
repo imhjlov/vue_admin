@@ -5,13 +5,12 @@
 
 <script setup lang="ts">
 // setup은 export default가 필요없다.
-import axios from 'axios';
+import { fetchNewsList } from '@/api';
 import { ref } from 'vue';
 
 const users: any = ref([]);
 
-axios
-  .get('https://api.hnpwa.com/v0/news/1.json')
+fetchNewsList()
   .then((response: any) => {
     users.value = response.data;
   })
