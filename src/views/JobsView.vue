@@ -1,6 +1,10 @@
 <template>
   <!-- 최상위 엘리먼트는 1개만 있어야한다. 최상위 엘리먼트는 div 태그가 아니어도 된다. -->
-  <div v-for="job in jobs" v-bind:key="job">{{ job.title }}</div>
+  <div v-for="job in jobs" :key="job">
+    <span>{{ job.title }}</span>
+    <a :href="job.url">{{ job.title }}</a>
+    <small>{{ job.time_ago }}</small>
+  </div>
 </template>
 
 <script setup lang="ts">
