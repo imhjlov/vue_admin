@@ -1,23 +1,37 @@
 <template>
-  <!-- 최상위 엘리먼트는 1개만 있어야한다. 최상위 엘리먼트는 div 태그가 아니어도 된다. -->
-  <div></div>
+  <div v-if="askItem">
+    <section>
+      <!-- 질문 상세 정보 -->
+      <div>사용자 프로필</div>
+      <div>
+        <router-link :to="`/user/${askItem.url}`">
+          {{ askItem.user }}</router-link
+        >
+      </div>
+      <div>{{ askItem.time_ago }}</div>
+      <h2>{{ askItem.title }}</h2>
+    </section>
+    <!-- 질문 뎃글 -->
+    <section>
+      <div v-html="askItem.content"></div>
+    </section>
+  </div>
 </template>
 
 <script setup lang="ts">
-// setup은 export default가 필요없다.
-
-// data() 대신 ref 사용하여 state 관리
+import { fetchAskItem } from '@/api';
 import { ref } from 'vue';
+import { useRoute } from 'vue-router';
 
-interface Props {
-  foo: string;
-  bar?: number;
-}
-const test = ref('');
-const props = defineProps<Props>();
-
-test.value;
+const askItem: any = ref(null);
+const route = useRoute();
+fetchAskItem(route.query.id)
+  .then(res => {
+    askItem.value = res.data;
+  })
+  .catch(err => {
+    console.log(err);
+  });
 </script>
 
-<!-- scoped : 현재 컴포넌트에만 style 지정 -->
 <style scoped></style>

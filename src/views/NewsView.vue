@@ -1,8 +1,13 @@
 <template>
   <!-- 최상위 엘리먼트는 1개만 있어야한다. 최상위 엘리먼트는 div 태그가 아니어도 된다. -->
-  <div v-for="user in users" v-bind:key="user">
+  <div v-for="user in users" :key="user">
     <a :href="user.url"> {{ user.title }}</a>
-    <small>{{ user.time_ago }} by {{ user.user }}</small>
+    <small
+      >{{ user.time_ago }} by
+      <router-link :to="`/user/${user.user}`">{{
+        user.user
+      }}</router-link></small
+    >
   </div>
 </template>
 

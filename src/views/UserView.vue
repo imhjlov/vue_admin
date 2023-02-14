@@ -1,23 +1,27 @@
 <template>
-  <!-- 최상위 엘리먼트는 1개만 있어야한다. 최상위 엘리먼트는 div 태그가 아니어도 된다. -->
-  <div></div>
+  <div v-if="userInfo">
+    <p>name : {{ userInfo.id }}</p>
+    <p>karma : {{ userInfo.karma }}</p>
+    <p>created : {{ userInfo.created }}</p>
+  </div>
 </template>
 
 <script setup lang="ts">
-// setup은 export default가 필요없다.
-
-// data() 대신 ref 사용하여 state 관리
+import { fetchUserInfo } from '@/api';
+import { useRoute } from 'vue-router';
 import { ref } from 'vue';
 
-interface Props {
-  foo: string;
-  bar?: number;
-}
-const test = ref('');
-const props = defineProps<Props>();
+const userInfo: any = ref(null);
 
-test.value;
+const route = useRoute();
+
+fetchUserInfo(route.params.user)
+  .then(response => {
+    userInfo.value = response.data;
+  })
+  .catch((err: any) => {
+    console.log(err);
+  });
 </script>
 
-<!-- scoped : 현재 컴포넌트에만 style 지정 -->
 <style scoped></style>

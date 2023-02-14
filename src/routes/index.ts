@@ -29,7 +29,7 @@ const router = createRouter({
       name: 'jobs',
       component: JobsView,
     },
-    { path: '/user', name: 'user', component: UserView },
+    { path: '/user/:user', name: 'user', component: UserView },
     { path: '/item', name: 'item', component: ItemView },
   ],
 });
