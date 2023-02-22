@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+console.log(process.env.NODE_ENV);
 
 // const drawerLeft = ref(false);
 </script>
@@ -9,7 +9,7 @@ import { ref } from 'vue';
   <div>
     <!-- <q-btn flat @click="drawerLeft = !drawerLeft" round dense icon="menu" /> -->
     <span>Header </span>
-    <ul class="header">
+    <ul class="header" className="text-white bg-[#42b883] flex p-8px list-none">
       <li><router-link to="/news">news</router-link> |</li>
       <li><router-link to="/jobs"> jobs</router-link> |</li>
       <li><router-link to="/ask"> ask</router-link></li>
@@ -19,14 +19,3 @@ import { ref } from 'vue';
   <!-- header -->
   <!-- <SideMenu /> -->
 </template>
-
-<!-- coped : 해당 컴포넌트에서만 적용되는 style, 자식에게 상속 안된다.-->
-<style scoped>
-.header {
-  color: white;
-  background-color: #42b883;
-  display: flex;
-  padding: 8px;
-  list-style: none;
-}
-</style>
