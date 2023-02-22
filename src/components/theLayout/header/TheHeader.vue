@@ -1,5 +1,5 @@
 <script setup lang="ts">
-console.log(process.env.NODE_ENV);
+// console.log(process.env.NODE_ENV);
 
 // const drawerLeft = ref(false);
 </script>
