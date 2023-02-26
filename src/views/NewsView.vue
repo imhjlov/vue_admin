@@ -1,5 +1,6 @@
 <template>
   <!-- 최상위 엘리먼트는 1개만 있어야한다. 최상위 엘리먼트는 div 태그가 아니어도 된다. -->
+  <p>NEWS</p>
   <div v-for="user in users" :key="user">
     <a :href="user.url"> {{ user.title }}</a>
     <small

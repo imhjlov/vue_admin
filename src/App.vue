@@ -1,15 +1,11 @@
-<script setup lang="ts">
-// import TheLayout from './components/theLayout/TheLayout.vue';
-import TheHeader from './components/theLayout/header/TheHeader.vue';
-</script>
-
 <template>
   <div id="app">
-    <!-- <TheLayout> -->
-    <TheHeader />
     <Transition name="page">
-      <router-view></router-view>
+      <TheLayout></TheLayout>
     </Transition>
-    <!-- </TheLayout> -->
   </div>
 </template>
+
+<script setup lang="ts">
+import TheLayout from './components/theLayout/TheLayout.vue';
+</script>

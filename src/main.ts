@@ -4,7 +4,7 @@ import routes from './routes';
 import { Quasar } from 'quasar';
 import '@quasar/extras/material-icons/material-icons.css';
 import 'quasar/src/css/index.sass';
-import './css/index.css';
+import './style/index.css';
 
 const app = createApp(App);
 

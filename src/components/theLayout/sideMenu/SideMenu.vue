@@ -1,21 +1,18 @@
-<template lang="">
+<template>
   <!-- left category menu -->
-  <q-drawer
-    v-model="drawerLeft"
-    :width="200"
-    :breakpoint="700"
-    bordered
-    class="bg-grey-3"
-  >
-    <q-scroll-area class="fit">
-      <div class="q-pa-sm">
-        <div v-for="n in 50" :key="n">Drawer {{ n }} / 50</div>
-      </div>
-    </q-scroll-area>
-  </q-drawer>
+  <q-scroll-area class="fit">
+    <ul
+      class="header"
+      className="text-white bg-[#42b883] flex-col p-8px list-none"
+    >
+      <li v-for="category in categoryRouter" :key="category.name">
+        <router-link :to="`${category.path}`">{{ category.name }}</router-link>
+      </li>
+    </ul>
+  </q-scroll-area>
   <!-- left category menu -->
 </template>
-<script lang="ts">
-export default {};
+
+<script setup lang="ts">
+import { categoryRouter } from '@/routes/categoryRouter';
 </script>
-<style lang=""></style>

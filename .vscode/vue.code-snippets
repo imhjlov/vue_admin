@@ -3,11 +3,6 @@
     "scope": "vue", // snippets을 사용할 언어
     "prefix": "vuetsc", // 자동완성 이름
     "body": [
-      "<template>",
-      "  <!-- 최상위 엘리먼트는 1개만 있어야한다. 최상위 엘리먼트는 div 태그가 아니어도 된다. -->",
-      "<div></div>",
-      "</template>",
-      "",
       "<script setup lang=\"ts\">",
       "// setup은 export default가 필요없다.",
       "",
@@ -23,10 +18,10 @@
       "",
       "test.value;",
       "</script>",
-      "",
-      "<!-- scoped : 현재 컴포넌트에만 style 지정 --> ",
-      "<style scoped>",
-      "</style>",
+      "<template>",
+      "  <!-- 최상위 엘리먼트는 1개만 있어야한다. 최상위 엘리먼트는 div 태그가 아니어도 된다. -->",
+      "<div></div>",
+      "</template>",
       ""
     ],
     "description": "vue component tempalte" // 자동완성에 출력할 snippets 설명

@@ -1,21 +1,28 @@
 <script setup lang="ts">
-// console.log(process.env.NODE_ENV);
+import { ref } from 'vue';
+import SideMenu from '../sideMenu/SideMenu.vue';
 
-// const drawerLeft = ref(false);
+const drawerLeft = ref(false);
 </script>
-<template lang="">
+
+<template>
   <!-- header -->
-  <!-- <q-header reveal class="bg-grey-3"> -->
-  <div>
-    <!-- <q-btn flat @click="drawerLeft = !drawerLeft" round dense icon="menu" /> -->
-    <span>Header </span>
-    <ul class="header" className="text-white bg-[#42b883] flex p-8px list-none">
-      <li><router-link to="/news">news</router-link> |</li>
-      <li><router-link to="/jobs"> jobs</router-link> |</li>
-      <li><router-link to="/ask"> ask</router-link></li>
-    </ul>
-  </div>
-  <!-- </q-header> -->
+  <q-header reveal class="bg-grey-3">
+    <q-btn flat @click="drawerLeft = !drawerLeft" round dense icon="menu" />
+    <span>Header</span>
+  </q-header>
   <!-- header -->
-  <!-- <SideMenu /> -->
+
+  <!-- sidemenu -->
+  <q-drawer
+    v-model="drawerLeft"
+    @click="drawerLeft = false"
+    :width="200"
+    :breakpoint="700"
+    bordered
+    class="bg-grey-3"
+  >
+    <SideMenu />
+  </q-drawer>
+  <!-- sidemenu -->
 </template>
