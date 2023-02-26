@@ -43,9 +43,9 @@ const requireAuth = (to: any, from: any, next: any) => {
   };
 
   if (checkPermissionBit() !== 0 || checkPermissionBit() === 1) {
-    next();
+    return next();
   }
-  return next({ path: '/' });
+  next({ path: '/' });
 };
 
 export const categoryRouter: categoryRouterType[] = [
